@@ -451,79 +451,81 @@ console.log("countNegativeNumbers");
 console.log(countNegativeNumbers());
 
 // ---------------------------------------------------------------------------------
-//excercise 11 - count larger than 10
+// Laura Hall pseudocode exercise
+// exercise 11 - count larger than 10
 
-//PROGRAM <largerThan10>
+// define procedure largerThan10
 
-    //DEFINE VARIABLE numberList
-    //DEFINE VARIABLE count
+// input: array of numbers called List;
+//        count = 0;
 
-    //forEach currentNumber in numberList DO:
-        //IF (currentNumber > 10) DO:
-            //count = count + 1
-            //move onto next card
-        //ELSE
-            //move onto next number
-        //END IF
+// Look at the first number in the List and proceed with
+//  ForEach number in List, check
+//      IF Number > 10;
+//          Then increase count value by 1;
 
-        //RETURN count
+//      Else
+//          Set count as current value of count;
+
+//      Return count;
+
+//      EndIf;
+
+//  EndForEach;
+//EndDefinedProcedure;
 
 
-//END
+//JavaScript Solution to the exercise
 
-
-function countGreaterThan10(){
-
-    let arrayOfNumbers = randomNumberArray(-100, 100);
-    console.log(arrayOfNumbers);
-
+function largerThan10(numbers) {
     let count = 0;
-
-    arrayOfNumbers.forEach(number => number > 10 ? count++ : null);
-
+    for(let i = 0; i < numbers.length; i++ ) {
+        if (numbers[i] > 10) {
+            count = count + 1;
+        }
+    }
     return count;
-
 }
 
-console.log("countGreaterThan10");
-console.log(countGreaterThan10());
+console.log(largerThan10([2, 3, 15,66]));
 
-// ---------------------------------------------------------------------------------
-//excercise 12 - count smaller than 10
+// Laura Hall pseudocode exercise
+// exercise 12 - count smaller than 10
 
-//PROGRAM <smallerThan10>
+// define procedure smallerThan10
 
-    //DEFINE VARIABLE numberList
-    //DEFINE VARIABLE count
+// input: array of numbers called List;
+//        count = 0;
 
-    //forEach currentNumber in numberList DO:
-        //IF (currentNumber > 10) DO:
-            //count = count + 1
-            //move onto next card
-        //ELSE
-            //move onto next number
-        //END IF
+// Look at the first number in the List and proceed with
+//  ForEach number in List, check
+//      IF Number < 10;
+//          Then increase count value by 1;
 
-    //RETURN count
+//      Else
+//          Set count as current value of count;
+
+//      Return count;
+
+//      EndIf;
+
+//  EndForEach;
+//EndDefinedProcedure;
 
 
-//END
+//JavaScript Solution to the exercise
 
-function countLesserThan10(){
-
-    let arrayOfNumbers = randomNumberArray(-100, 100);
-    console.log(arrayOfNumbers);
-
+function smallerThan10(numbers) {
     let count = 0;
-
-    arrayOfNumbers.forEach(number => number < 10 ? count++ : null);
-
+    for(let i = 0; i < numbers.length; i++ ) {
+        if (numbers[i] < 10) {
+            count = count + 1;
+        }
+    }
     return count;
-
 }
 
-console.log("countLesserThan10");
-console.log(countLesserThan10());
+console.log(smallerThan10([2, 3, 15,66]));
 
 // ---------------------------------------------------------------------------------
 //excercise 13 - count larger than x
