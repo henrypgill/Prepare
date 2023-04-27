@@ -4,7 +4,7 @@
 function randomNumberArray(min, max){
     let newNumberArray = [];
 
-    for (let i = 0; i < 10; i++){
+    for (let i = 0; i < 25; i++){
         newNumberArray.push(Math.floor(Math.random() * (max - min) + min));
     }
 
@@ -21,7 +21,7 @@ function randomNumberArray(min, max){
 //PROGRAM <findLargestNumber>
 
     //define variable arrayOfCards
-    //define variable highestCard
+    //define variable highestCard = first card
 
     //forEach card in  arrayOfCards DO:
     //    IF (currentCard > highestCard) DO:
@@ -35,7 +35,21 @@ function randomNumberArray(min, max){
 
 //END
 
+function findLargestNumber() {
 
+    let arrayOfNumbers = randomNumberArray(0, 100);
+    console.log(arrayOfNumbers);
+    
+    let largestNumber = arrayOfNumbers[0];
+    
+    arrayOfNumbers.forEach(number => number > largestNumber ? largestNumber =  number: null);
+    
+    
+    return largestNumber
+    }
+    
+console.log("findLargestNumber");
+console.log(findLargestNumber());
 
 
 // ---------------------------------------------------------------------------------
@@ -43,7 +57,9 @@ function randomNumberArray(min, max){
 
 //PROGRAM <findSmallestNumber>
 
-    //define variable lowestCard
+    //define variable arrayOfCards
+    //define variable lowestCard = first card
+
     //forEach card in the arrayOfCards DO:
     //    IF (currentCard < lowestCard) DO:
     //       lowestCard = currentCard
@@ -57,6 +73,23 @@ function randomNumberArray(min, max){
 //END
 
 
+    
+    
+function findSmallestNumber(){
+    
+    let arrayOfNumbers = randomNumberArray(0, 100);
+    console.log(arrayOfNumbers);
+    
+    let smallestNumber = arrayOfNumbers[0];
+    
+    arrayOfNumbers.forEach(number => number < smallestNumber ? smallestNumber =  number: null );
+    
+    
+    return smallestNumber
+    }
+    
+console.log("findSmallestNumber");
+console.log(findSmallestNumber());
 
 
 // ---------------------------------------------------------------------------------
@@ -64,8 +97,10 @@ function randomNumberArray(min, max){
 
 //PROGRAM <isInList>
 
+    //define variable arrayOfCards
     //define variable targetNumber
     //define variable answer = FALSE
+
     //forEach card in the arrayOfCards DO:
     //    IF currentCard = targetNumber DO:
     //       answer = TRUE
@@ -77,6 +112,26 @@ function randomNumberArray(min, max){
     //RETURN answer
 
 //END
+
+function isInList(){
+    
+    let arrayOfNumbers = randomNumberArray(0, 10);
+    console.log(arrayOfNumbers);    
+
+    let answer = false;
+    let target = 5;
+    
+    arrayOfNumbers.forEach(number => {
+        if (number == target){
+            answer = true;
+        }});
+    
+    
+    return answer;
+}
+    
+console.log("isInList");
+console.log(isInList());
 
 // ---------------------------------------------------------------------------------
 //excercise 4 - add numbers
@@ -96,6 +151,27 @@ function randomNumberArray(min, max){
     //return sumTotal
     
 //END
+
+addTwoNumbers = (number1, number2) => {return number1 + number2};
+
+function listTotal() {
+
+    let arrayOfNumbers = randomNumberArray(0, 100);
+    console.log(arrayOfNumbers);
+
+    let currentTotal = 0;
+
+    arrayOfNumbers.forEach(number => currentTotal = addTwoNumbers(currentTotal, number));
+
+    return currentTotal
+
+}
+
+console.log("isInList");
+console.log(listTotal());
+
+
+
 
 // ---------------------------------------------------------------------------------
 //excercise 5 - find the largest even number
@@ -127,6 +203,26 @@ function randomNumberArray(min, max){
 
 //END
 
+function largestEvenNumber(){
+
+    let arrayOfNumbers = randomNumberArray(0, 100);
+    console.log(arrayOfNumbers);
+
+    let largestEvenNumber = 0;
+
+    arrayOfNumbers.forEach(number => number > largestEvenNumber && number % 2 == 0 ? largestEvenNumber = number : null);
+
+    if ( largestEvenNumber == 0){
+        return "no even numbers in list";
+    }
+    return largestEvenNumber;
+
+}
+
+console.log("largestEvenNumber");
+console.log(largestEvenNumber());
+
+
 // ---------------------------------------------------------------------------------
 //excercise 6 - find the largest odd number
 
@@ -157,23 +253,92 @@ function randomNumberArray(min, max){
 
 //END
 
+
+function largestOddNumber(){
+
+    let arrayOfNumbers = randomNumberArray(0, 100);
+    console.log(arrayOfNumbers);
+
+    let largestOddNumber = 0;
+
+    arrayOfNumbers.forEach(number => number > largestOddNumber && number % 2 != 0 ? largestOddNumber = number : null);
+
+    if ( largestOddNumber == 0){
+        return "no odd numbers in list";
+    }
+    return largestOddNumber;
+
+}
+
+console.log("largestOddNumber");
+console.log(largestOddNumber());
+
+
+
 // ---------------------------------------------------------------------------------
 //excercise 7 - find second largest number
 
 //PROGRAM <programName>
 
-//define variable numberList
-//define variable 
+    //define variable numberList
+    //define variable largestNumber = 0
+    //define variable secondLargestNumber = 0
 
+    //forEach (number in numberList) DO:
 
+        // IF (number > secondLargestNumber) AND (number > largestNumber) DO:
+            //secondLargestNumber = largestNumber
+            //largestNumber = number
+            //move onto next card
+        //ELSE IF (number > secondLargestNumber) DO:
+            //secondLargestNumber = number
+            //move onto next card
+        //ELSE DO:
+            //move onto next card
+        //END IF
 
+    //RETURN count
 
 //END
+
+function largerThanWhich(secondLargestNumber, largestNumber, number) {
+
+    if ( number > largestNumber && number > secondLargestNumber ){
+        return [largestNumber, number];
+
+    } else if (number > secondLargestNumber && number < largestNumber){
+        return [number, largestNumber];
+
+    } else {
+        return [secondLargestNumber, largestNumber];
+    }
+
+}
+
+
+function secondLargestNumber(){
+
+    let twoLargestNumbers = [0, 0];
+
+    let arrayOfNumbers = randomNumberArray(0, 10);
+    console.log(arrayOfNumbers);
+
+    arrayOfNumbers.forEach(number => {
+
+        twoLargestNumbers = largerThanWhich(twoLargestNumbers[0], twoLargestNumbers[1], number)
+    });
+
+    return twoLargestNumbers[0];
+
+}
+
+//console.log("secondLargestNumber");
+//console.log(secondLargestNumber());
 
 // ---------------------------------------------------------------------------------
 //excercise 8 - count specific number
 
-//PROGRAM <programName>
+//PROGRAM <countSpecicNumber>
 
     //define variable numberList
     //define variable count
@@ -190,6 +355,24 @@ function randomNumberArray(min, max){
     //RETURN count
 
 //END
+
+function countSpecicNumber(){
+
+    let arrayOfNumbers = randomNumberArray(0, 10);
+    console.log(arrayOfNumbers);
+
+    let count = 0;
+    let target = 5;
+    console.log(`target number: ${target}`);
+
+    arrayOfNumbers.forEach(number => number == target ? count++ : null);
+
+    return count;
+
+}
+
+console.log("countSpecicNumber");
+console.log(countSpecicNumber());
 
 // ---------------------------------------------------------------------------------
 //excercise 9 - count positive numbers
@@ -213,6 +396,22 @@ function randomNumberArray(min, max){
 
 //END
 
+function countPositiveNumbers(){
+
+    let arrayOfNumbers = randomNumberArray(-100, 100);
+    console.log(arrayOfNumbers);
+
+    let count = 0;
+
+    arrayOfNumbers.forEach(number => number > 0 ? count++ : null);
+
+    return count;
+
+}
+
+console.log("countPositiveNumbers");
+console.log(countPositiveNumbers());
+
 // ---------------------------------------------------------------------------------
 //excercise 10 - count negative numbers
 
@@ -235,10 +434,21 @@ function randomNumberArray(min, max){
 
 //END
 
+function countNegativeNumbers(){
 
+    let arrayOfNumbers = randomNumberArray(-100, 100);
+    console.log(arrayOfNumbers);
 
+    let count = 0;
 
-//END
+    arrayOfNumbers.forEach(number => number < 0 ? count++ : null);
+
+    return count;
+
+}
+
+console.log("countNegativeNumbers");
+console.log(countNegativeNumbers());
 
 // ---------------------------------------------------------------------------------
 //excercise 11 - count larger than 10
@@ -261,6 +471,23 @@ function randomNumberArray(min, max){
 
 //END
 
+
+function countGreaterThan10(){
+
+    let arrayOfNumbers = randomNumberArray(-100, 100);
+    console.log(arrayOfNumbers);
+
+    let count = 0;
+
+    arrayOfNumbers.forEach(number => number > 10 ? count++ : null);
+
+    return count;
+
+}
+
+console.log("countGreaterThan10");
+console.log(countGreaterThan10());
+
 // ---------------------------------------------------------------------------------
 //excercise 12 - count smaller than 10
 
@@ -282,6 +509,21 @@ function randomNumberArray(min, max){
 
 //END
 
+function countLesserThan10(){
+
+    let arrayOfNumbers = randomNumberArray(-100, 100);
+    console.log(arrayOfNumbers);
+
+    let count = 0;
+
+    arrayOfNumbers.forEach(number => number < 10 ? count++ : null);
+
+    return count;
+
+}
+
+console.log("countLesserThan10");
+console.log(countLesserThan10());
 
 // ---------------------------------------------------------------------------------
 //excercise 13 - count larger than x
@@ -305,6 +547,22 @@ function randomNumberArray(min, max){
 
 //END
 
+function countGreaterThanX(){
+
+    let arrayOfNumbers = randomNumberArray(-10, 10);
+    console.log(arrayOfNumbers);
+
+    let count = 0;
+    let target = 7;
+
+    arrayOfNumbers.forEach(number => number > target ? count++ : null);
+
+    return count;
+
+}
+
+console.log("countGreaterThanX");
+console.log(countGreaterThanX());
 
 // ---------------------------------------------------------------------------------
 //excercise 14 - count smaller than x
@@ -327,3 +585,23 @@ function randomNumberArray(min, max){
 
 
 //END
+
+function countLesserThanX(){
+
+    let arrayOfNumbers = randomNumberArray(-10, 10);
+    console.log(arrayOfNumbers);
+
+    let count = 0;
+    target = 0;
+
+    arrayOfNumbers.forEach(number => number < target ? count++ : null);
+
+    return count;
+
+}
+
+console.log("countLesserThanX");
+console.log(countLesserThanX());
+
+
+
